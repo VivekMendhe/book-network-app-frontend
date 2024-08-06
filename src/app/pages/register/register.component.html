@@ -1,0 +1,87 @@
+<!-- register.component.html -->
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center mb-4">Register</h2>
+
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <!-- Email Field -->
+      <div class="mb-4">
+        <label class="block text-gray-700" for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="registerRequest.email"
+          required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- First Name Field -->
+      <div class="mb-4">
+        <label class="block text-gray-700" for="firstname">First Name</label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          [(ngModel)]="registerRequest.firstname"
+          required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Last Name Field -->
+      <div class="mb-4">
+        <label class="block text-gray-700" for="lastname">Last Name</label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          [(ngModel)]="registerRequest.lastname"
+          required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-4">
+        <label class="block text-gray-700" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="registerRequest.password"
+          required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Error Messages -->
+      @if (errorMsg.length > 0) {
+      <div  class="mb-4">
+        <ul class="list-disc list-inside text-red-600">
+          @for (error of errorMsg; track $index) {
+          <li>{{ error }}</li>
+          }
+        </ul>
+      </div>
+      }
+
+      <!-- Submit Button -->
+      <div class="flex items-center justify-between">
+        <button
+          type="submit"
+          [disabled]="!registerForm.form.valid"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Register
+        </button>
+        <a
+          (click)="login()"
+          class="text-blue-500 hover:underline cursor-pointer"
+          >Already have an account? Login</a
+        >
+      </div>
+    </form>
+  </div>
+</div>
