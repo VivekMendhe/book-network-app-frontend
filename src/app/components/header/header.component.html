@@ -1,20 +1,42 @@
-<nav class="bg-blue-500 p-4 flex flex-col sm:flex-row justify-between items-center">
-    <div class="text-white font-bold text-xl">
-      <a routerLink="/">Book Network</a>
-    </div>
-    <ul class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 text-white">
-      <li>
-        <a [routerLink]="''" class="link font-bold hover:underline">Home</a>
-      </li>
-      <li>
-        <a [routerLink]="'login'" class="link font-bold hover:underline">Login</a>
-      </li>
-      <li>
-        <a [routerLink]="'register'" class="link font-bold hover:underline">Register</a>
-      </li>
-      <!-- <li>
-        <a [routerLink]="'active-account'" class="link font-bold hover:underline">Activate-Account</a>
-      </li> -->
-    </ul>
-  </nav>
-  
+<!-- header.component.html -->
+<nav class="bg-blue-500 p-4 flex flex-col sm:flex-row items-center justify-between w-full">
+  <!-- Logo/Brand Name -->
+  <div class="text-white font-bold text-xl">
+    <a routerLink="/" class="hover:text-gray-200">Book Network</a>
+  </div>
+
+  <!-- Toggle Button for Small Screens -->
+  <button class="sm:hidden text-white text-2xl" (click)="toggleMenu()">☰</button>
+
+  <!-- Navigation Menu (Desktop) -->
+  <ul class="hidden sm:flex flex-row space-x-4 text-white">
+    <li>
+      <a [routerLink]="''" class="link font-bold hover:underline">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="'login'" class="link font-bold hover:underline">Login</a>
+    </li>
+    <li>
+      <a [routerLink]="'register'" class="link font-bold hover:underline">Register</a>
+    </li>
+    <!-- <li>
+      <a [routerLink]="'active-account'" class="link font-bold hover:underline">Activate-Account</a>
+    </li> -->
+  </ul>
+
+  <!-- Navigation Menu (Mobile) -->
+  <ul *ngIf="menuOpen" class="flex flex-col space-y-2 text-white sm:hidden w-full mt-4">
+    <li>
+      <a [routerLink]="''" class="link font-bold hover:underline block text-center">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="'login'" class="link font-bold hover:underline block text-center">Login</a>
+    </li>
+    <li>
+      <a [routerLink]="'register'" class="link font-bold hover:underline block text-center">Register</a>
+    </li>
+    <!-- <li>
+      <a [routerLink]="'active-account'" class="link font-bold hover:underline block text-center">Activate-Account</a>
+    </li> -->
+  </ul>
+</nav>

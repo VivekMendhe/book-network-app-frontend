@@ -1,24 +1,43 @@
+/* header.component.css */
+
 .link {
-    position: relative;
-    display: inline-block;
-    color: white;
-    text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  left: 0;
+  background: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+@media (min-width: 640px) {
+  .sm\:hidden {
+    display: none;
   }
-  
-  .link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    display: block;
-    margin-top: 5px;
-    left: 0;
-    background: white;
-    transition: width 0.3s ease, left 0.3s ease;
+  .sm\:flex {
+    display: flex;
   }
-  
-  .link:hover::after {
-    width: 100%;
-    left: 0;
+}
+
+@media (max-width: 639px) {
+  .sm\:flex {
+    display: none;
   }
-  
+  .sm\:hidden {
+    display: flex;
+  }
+}

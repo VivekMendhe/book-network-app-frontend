@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services';
 import {skipUntil} from 'rxjs';
 import { CodeInputModule } from 'angular-code-input';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-active-account',
   standalone: true,
-  imports: [ CodeInputModule],
+  imports: [ CodeInputModule, CommonModule],
   templateUrl: './active-account.component.html',
   styleUrl: './active-account.component.css'
 })
